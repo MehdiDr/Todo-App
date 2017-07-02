@@ -27,21 +27,24 @@ class App extends Component {
     const todos = this.state.todos;
     return (
       <div className="App">
+        <div>
+          <input type="text" value={this.state.inputValue} onChange={this.handleChange} />
+          <button onClick={this.addTodo}>Add</button>
+        </div>
         <ul>
           {
             this.state.todos.map((todo, index) => {
-              return (
-                <div>
-                  <li>{todo}</li>
-                  <button>Delete</button>
-                </div>
-              )
+              return (<li>{todo}</li>)
             })
           }
         </ul>
         <div>
-          <input type="text" value={this.state.inputValue} onChange={this.handleChange} />
-          <button onClick={this.addTodo}>Add</button>
+          <span>Filter : </span>
+          <button>All</button>
+          <button>To do</button>
+          <button>Finished</button>
+          <button>Out of time</button>
+          <button>Archived</button>
         </div>
       </div>
     );
