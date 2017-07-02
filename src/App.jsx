@@ -24,10 +24,20 @@ class App extends Component {
     });
   }
   render() {
+    const todos = this.state.todos;
     return (
       <div className="App">
         <ul>
-          <li>{this.state.todos}</li>
+          {
+            this.state.todos.map((todo, index) => {
+              return (
+                <div>
+                  <li>{todo}</li>
+                  <button>Delete</button>
+                </div>
+              )
+            })
+          }
         </ul>
         <div>
           <input type="text" value={this.state.inputValue} onChange={this.handleChange} />
