@@ -11,7 +11,7 @@ This project is build with React, Redux, NodeJS and MongoDB. You can :
     * archive your task.
 
 
-* When your task is finished : she become overline.
+* When the task is finished : she become overline.
 * When the deadline of the task is over : she become red.
 * When the task is archived : she become grey tint.
 
@@ -19,10 +19,10 @@ This project is build with React, Redux, NodeJS and MongoDB. You can :
 
 Success the test !
 
-npm --install
-npm start # open localhost:3000 in your browser
+`npm --install`
+`npm start` # open localhost:3000 in your browser
 
-OU
+OR
 
 https://MehdiDr.github.io/simple-todo-list-app/
 
@@ -30,6 +30,7 @@ https://MehdiDr.github.io/simple-todo-list-app/
 # Development setup
 
 Install the dependencies : `npm install --save-dev`
+
 Test the app : `npm test`
 
 #Release / version ? history
