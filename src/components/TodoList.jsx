@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
+import TodoInput from './TodoInput';
 
 export default class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       todos: [],
-      inputValue: '',
       filter: 'none',
     };
   }
-  addTodo = () => {
+  addTodo = (value) => {
     const todos = this.state.todos;
     todos.push({
-      label: this.state.inputValue
+      label: value
     });
     this.setState({
       todos,
@@ -26,7 +26,6 @@ export default class TodoList extends Component {
     this.state.todos.splice(index, 1)
     this.setState({
       todos,
-      inputValue:'',
     })
   }
   toggleFinished = (index) => {
@@ -42,18 +41,10 @@ export default class TodoList extends Component {
       filter: status,
     })
   }
-  handleChange = (e) => {
-    this.setState({
-      inputValue: e.target.value,
-    });
-  }
   render() {
     return (
       <div>
-        <div>
-          <input type="text" value={this.state.inputValue} onChange={this.handleChange} />
-          <button onClick={this.addTodo}>Add</button>
-        </div>
+        <TodoInput addTodo={this.addTodo}/>
         <ul>
           {
             this.state.todos.map((item, index) => {
