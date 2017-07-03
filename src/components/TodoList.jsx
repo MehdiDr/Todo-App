@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
 import TodoInput from './TodoInput';
+import TodoFilter from './TodoFilter';
 
 export default class TodoList extends Component {
   constructor(props) {
@@ -65,14 +66,7 @@ export default class TodoList extends Component {
             })
           }
         </ul>
-        <div>
-          <span>Filter : </span>
-          <button onClick={this.selectFilter.bind(this,'none')}>All</button>
-          <button onClick={this.selectFilter.bind(this,'todo')}>To do</button>
-          <button onClick={this.selectFilter.bind(this,'finished')}>Finished</button>
-          <button>Out of time</button>
-          <button>Archived</button>
-        </div>
+        <TodoFilter status={this.state.filter} selectFilter={this.selectFilter}/>
       </div>
     )
   }
