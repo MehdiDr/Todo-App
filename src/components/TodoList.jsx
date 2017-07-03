@@ -7,6 +7,7 @@ export default class TodoList extends Component {
     this.state = {
       todos: [],
       inputValue: '',
+      filter: 'none',
     };
   }
   addTodo = () => {
@@ -36,6 +37,11 @@ export default class TodoList extends Component {
       todos: this.state.todos
     })
   }
+  selectFilter = (status) => {
+    this.setState({
+      filter: status,
+    })
+  }
   handleChange = (e) => {
     this.setState({
       inputValue: e.target.value,
@@ -51,6 +57,10 @@ export default class TodoList extends Component {
         <ul>
           {
             this.state.todos.map((item, index) => {
+              const isTodoFiltered = (this.state.filter ==="todo" && item.finished === true)
+              console.log(isTodoFiltered)
+              const isFinishedFiltered = (this.state.filter === "finished" && item.finished === false)
+              if (isTodoFiltered || isFinishedFiltered) return null
               return (
                 <div>
                   <TodoItem key={index}
@@ -66,9 +76,9 @@ export default class TodoList extends Component {
         </ul>
         <div>
           <span>Filter : </span>
-          <button>All</button>
-          <button>To do</button>
-          <button>Finished</button>
+          <button onClick={this.selectFilter.bind(this,'none')}>All</button>
+          <button onClick={this.selectFilter.bind(this,'todo')}>To do</button>
+          <button onClick={this.selectFilter.bind(this,'finished')}>Finished</button>
           <button>Out of time</button>
           <button>Archived</button>
         </div>

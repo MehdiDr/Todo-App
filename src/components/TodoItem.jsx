@@ -7,8 +7,7 @@ const TodoItem = (props) => {
 
   return (
     <div>
-      <li className={itemClass}>{props.label}</li>
-      <input type="checkbox" onClick={props.onClick} />
+      <li className={itemClass} onClick={props.onClick}>{props.label}</li>
     </div>
   );
 };
