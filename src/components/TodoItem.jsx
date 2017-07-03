@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import './TodoItem.css';
 
 const TodoItem = (props) => {
@@ -11,4 +11,11 @@ const TodoItem = (props) => {
     </div>
   );
 };
+
+TodoItem.propTypes = {
+  label: PropTypes.string.isRequired,
+  finished: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
 export default TodoItem;
