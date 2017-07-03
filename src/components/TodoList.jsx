@@ -32,7 +32,6 @@ export default class TodoList extends Component {
   toggleFinished = (index) => {
     const selectedTodo = this.state.todos[index];
     selectedTodo.finished =!selectedTodo.finished;
-    console.log(selectedTodo)
     this.setState({
       todos: this.state.todos
     })
@@ -50,7 +49,6 @@ export default class TodoList extends Component {
           {
             this.state.todos.map((item, index) => {
               const isTodoFiltered = (this.state.filter ==="todo" && item.finished === true)
-              console.log(isTodoFiltered)
               const isFinishedFiltered = (this.state.filter === "finished" && item.finished === false)
               if (isTodoFiltered || isFinishedFiltered) return null
               return (
