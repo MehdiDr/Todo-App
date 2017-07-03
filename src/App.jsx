@@ -18,13 +18,21 @@ class App extends Component {
       inputValue: '',
     });
   }
+  deleteTodo = (e) => {
+    const todos = this.state.todos;
+    const index = this.state.todos.indexOf(e.target.value)
+    this.state.todos.splice(index, 1)
+    this.setState({
+      todos,
+      inputValue:'',
+    })
+  }
   handleChange = (e) => {
     this.setState({
       inputValue: e.target.value,
     });
   }
   render() {
-    const todos = this.state.todos;
     return (
       <div className="App">
         <div>
@@ -34,7 +42,12 @@ class App extends Component {
         <ul>
           {
             this.state.todos.map((todo, index) => {
-              return (<li>{todo}</li>)
+              return (
+                <div>
+                  <li key={index}>{todo}</li>
+                  <button onClick={this.deleteTodo}>Delete</button>
+                </div>
+              )
             })
           }
         </ul>
