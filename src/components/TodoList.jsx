@@ -5,10 +5,7 @@ export default class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [
-        {label: "Success the todo app", finished: false},
-        {label: "Whatever", finished: false},
-      ],
+      todos: [],
       inputValue: '',
     };
   }
@@ -47,6 +44,10 @@ export default class TodoList extends Component {
   render() {
     return (
       <div>
+        <div>
+          <input type="text" value={this.state.inputValue} onChange={this.handleChange} />
+          <button onClick={this.addTodo}>Add</button>
+        </div>
         <ul>
           {
             this.state.todos.map((item, index) => {
@@ -64,8 +65,12 @@ export default class TodoList extends Component {
           }
         </ul>
         <div>
-          <input type="text" value={this.state.inputValue} onChange={this.handleChange} />
-          <button onClick={this.addTodo}>Add</button>
+          <span>Filter : </span>
+          <button>All</button>
+          <button>To do</button>
+          <button>Finished</button>
+          <button>Out of time</button>
+          <button>Archived</button>
         </div>
       </div>
     )

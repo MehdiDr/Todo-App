@@ -6,8 +6,10 @@ const TodoItem = (props) => {
   if (props.finished) itemClass = 'finished';
 
   return (
-    <li className={itemClass} onClick={props.onClick}>{props.label}</li>
+    <div>
+      <li className={itemClass}>{props.label}</li>
+      <input type="checkbox" onClick={props.onClick} />
+    </div>
   );
 };
-
 export default TodoItem;
