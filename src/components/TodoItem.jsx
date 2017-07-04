@@ -8,13 +8,14 @@ const TodoItem = (props) => {
 
   return (
     <div>
-      <li className={itemClass} onClick={props.onClick}>{props.label}</li>
+      <li className={itemClass} onClick={props.onClick}>{props.label}<br />{props.deadline}</li>
     </div>
   );
 };
 
 TodoItem.propTypes = {
   label: PropTypes.string.isRequired,
+  deadline: PropTypes.number.isRequired,
   finished: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
 };

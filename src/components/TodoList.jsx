@@ -11,14 +11,14 @@ export default class TodoList extends Component {
       filter: 'none',
     };
   }
-  addTodo = (value) => {
+  addTodo = (value1, value2) => {
     const todos = this.state.todos;
     todos.push({
-      label: value
+      label: value1,
+      deadline: value2,
     });
     this.setState({
       todos,
-      inputValue: '',
     });
   }
   deleteTodo = (e) => {
@@ -44,7 +44,7 @@ export default class TodoList extends Component {
   render() {
     return (
       <div>
-        <TodoInput addTodo={this.addTodo}/>
+        <TodoFilter status={this.state.filter} selectFilter={this.selectFilter}/>
         <ul>
           {
             this.state.todos.map((item, index) => {
@@ -56,6 +56,7 @@ export default class TodoList extends Component {
                   <TodoItem key={index}
                             finished={item.finished}
                             label= {item.label}
+                            deadline={item.deadline}
                             onClick={this.toggleFinished.bind(this,index)}
                           />
                   <button onClick={this.deleteTodo}>Delete</button>
@@ -64,7 +65,7 @@ export default class TodoList extends Component {
             })
           }
         </ul>
-        <TodoFilter status={this.state.filter} selectFilter={this.selectFilter}/>
+        <TodoInput addTodo={this.addTodo}/>
       </div>
     )
   }

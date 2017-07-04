@@ -5,24 +5,27 @@ export default class TodoInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: "",
+      todoName: "",
+      todoDate:"",
     }
   }
   handleChange = (e) => {
     this.setState({
-      inputValue: e.target.value,
+      [e.target.name]: e.target.value,
     });
   }
   onClickBtn = () => {
     this.setState({
-      inputValue: "",
+      todoName: "",
+      todoDate: "",
     });
-    this.props.addTodo(this.state.inputValue)
+    this.props.addTodo(this.state.todoName, this.state.todoDate)
   }
   render() {
     return(
       <div>
-        <input type="text" value={this.state.inputValue} onChange={this.handleChange} />
+        <input type="text" name="todoName" value={this.state.todoName} onChange={this.handleChange} />
+        <input type="date" name="todoDate" value={this.state.todoDate} onChange={this.handleChange}  />
         <button onClick={this.onClickBtn}>Add</button>
       </div>
     )
