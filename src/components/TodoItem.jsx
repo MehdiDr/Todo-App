@@ -8,14 +8,15 @@ const TodoItem = (props) => {
 
   return (
     <div>
-      <li className={itemClass} onClick={props.onClick}>{props.label}<br />{props.deadline}</li>
+      <li className={itemClass} onClick={props.onClick}>{props.name}<br />{props.description}<br />{props.deadline}</li>
     </div>
   );
 };
 
 TodoItem.propTypes = {
-  label: PropTypes.string.isRequired,
-  deadline: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  deadline: PropTypes.string.isRequired,
   finished: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
 };

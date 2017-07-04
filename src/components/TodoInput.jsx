@@ -5,8 +5,9 @@ export default class TodoInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todoName: "",
-      todoDate:"",
+      name: "",
+      description: "",
+      date: "",
     }
   }
   handleChange = (e) => {
@@ -16,16 +17,18 @@ export default class TodoInput extends Component {
   }
   onClickBtn = () => {
     this.setState({
-      todoName: "",
-      todoDate: "",
+      name: "",
+      description: "",
+      date: "",
     });
-    this.props.addTodo(this.state.todoName, this.state.todoDate)
+    this.props.addTodo(this.state.name, this.state.description, this.state.date)
   }
   render() {
     return(
       <div>
-        <input type="text" name="todoName" value={this.state.todoName} onChange={this.handleChange} />
-        <input type="date" name="todoDate" value={this.state.todoDate} onChange={this.handleChange}  />
+        <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+        <input type="text" name="description" value={this.state.description} onChange={this.handleChange} />
+        <input type="date" name="date" value={this.state.date} onChange={this.handleChange}  />
         <button onClick={this.onClickBtn}>Add</button>
       </div>
     )

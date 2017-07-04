@@ -11,11 +11,12 @@ export default class TodoList extends Component {
       filter: 'none',
     };
   }
-  addTodo = (value1, value2) => {
+  addTodo = (value1, value2, value3) => {
     const todos = this.state.todos;
     todos.push({
-      label: value1,
-      deadline: value2,
+      name: value1,
+      description: value2,
+      deadline: value3,
     });
     this.setState({
       todos,
@@ -55,7 +56,8 @@ export default class TodoList extends Component {
                 <div>
                   <TodoItem key={index}
                             finished={item.finished}
-                            label= {item.label}
+                            name= {item.name}
+                            description= {item.description}
                             deadline={item.deadline}
                             onClick={this.toggleFinished.bind(this,index)}
                           />
