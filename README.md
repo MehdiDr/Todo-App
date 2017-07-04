@@ -1,4 +1,4 @@
-# Todo-App
+# Todo-App [![Build Status](https://travis-ci.org/MehdiDr/Todo-App.svg?branch=master)](https://travis-ci.org/MehdiDr/Todo-App
 
 This project is build with React, Redux, NodeJS and MongoDB. You can :
 
@@ -11,28 +11,24 @@ This project is build with React, Redux, NodeJS and MongoDB. You can :
     * archive your task.
 
 
-* When the task is finished : she become overline.
-* When the deadline of the task is over : she become red.
-* When the task is archived : she become grey tint.
+* When the task is finished : it turns to overline style.
+* When the deadline of the task is over : it turns to red.
+* When the task is archived : it turns to grey tint.
 
 # Usage
 
 Success the test !
 
-`npm --install`
-`npm start` # open localhost:3000 in your browser
+# Development setup
+
+`npm install`
+
+`npm start`
+
+#open localhost:3000 on your browser
+
+Test the app : `npm test`
 
 OR
 
 https://MehdiDr.github.io/simple-todo-list-app/
-
-
-# Development setup
-
-Install the dependencies : `npm install --save-dev`
-
-Test the app : `npm test`
-
-#Release / version ? history
-
-TO DO
