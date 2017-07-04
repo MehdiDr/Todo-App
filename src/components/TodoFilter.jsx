@@ -9,7 +9,7 @@ const TodoFilter = (props) => {
       <button onClick={props.selectFilter.bind(this, 'todo')}>To do</button>
       <button onClick={props.selectFilter.bind(this, 'finished')}>Finished</button>
       <button>Out of time</button>
-      <button>Archived</button>
+      <button onClick={props.selectFilter.bind(this, 'archived')}>Archived</button>
     </div>
   );
 };

@@ -26,8 +26,8 @@ export default class TodoInput extends Component {
   render() {
     return(
       <div>
-        <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
-        <input type="text" name="description" value={this.state.description} onChange={this.handleChange} />
+        <input type="text" placeholder="name" name="name" value={this.state.name} onChange={this.handleChange} />
+        <input type="text" name="description" placeholder="description" value={this.state.description} onChange={this.handleChange} />
         <input type="date" name="date" value={this.state.date} onChange={this.handleChange}  />
         <button onClick={this.onClickBtn}>Add</button>
       </div>

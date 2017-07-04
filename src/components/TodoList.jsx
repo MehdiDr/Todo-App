@@ -37,6 +37,13 @@ export default class TodoList extends Component {
       todos: this.state.todos
     })
   }
+  toggleArchived = (index) => {
+    const selectedTodo = this.state.todos[index];
+    selectedTodo.archived =true;
+    this.setState({
+      todos: this.state.todos
+    })
+  }
   selectFilter = (status) => {
     this.setState({
       filter: status,
@@ -51,17 +58,20 @@ export default class TodoList extends Component {
             this.state.todos.map((item, index) => {
               const isTodoFiltered = (this.state.filter ==="todo" && item.finished === true)
               const isFinishedFiltered = (this.state.filter === "finished" && item.finished === false)
-              if (isTodoFiltered || isFinishedFiltered) return null
+              const isArchivedFiltered = (this.state.filter === "archived" && item.finished === false)
+              if (isTodoFiltered || isFinishedFiltered || isArchivedFiltered) return null
               return (
                 <div>
                   <TodoItem key={index}
-                            finished={item.finished}
                             name= {item.name}
                             description= {item.description}
                             deadline={item.deadline}
+                            finished={item.finished}
+                            archived={item.archived}
                             onClick={this.toggleFinished.bind(this,index)}
                           />
                   <button onClick={this.deleteTodo}>Delete</button>
+                  <button onClick={this.toggleArchived.bind(this, index)}>Archive</button>
                 </div>
               );
             })

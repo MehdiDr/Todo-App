@@ -1,3 +1,9 @@
 .finished {
   text-decoration: line-through;
 }
+.overtime {
+  color: red;
+}
+.archived {
+  color: grey;
+}
