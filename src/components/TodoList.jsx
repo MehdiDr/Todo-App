@@ -19,13 +19,9 @@ export default class TodoList extends Component {
     };
   }
   // Add task
-  addTodo(value1, value2, value3) {
+  addTodo(value) {
     const todos = this.state.todos;
-    todos.push({
-      name: value1,
-      description: value2,
-      deadline: value3,
-    });
+    todos.push(value);
     this.setState({
       todos,
     });
