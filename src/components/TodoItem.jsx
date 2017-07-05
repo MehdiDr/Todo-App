@@ -4,9 +4,9 @@ import './TodoItem.css';
 
 const TodoItem = (props) => {
   let itemClass = '';
-  if (props.finished) itemClass = 'finished';
-  if (props.deadline < Date.now()) itemClass = 'overtime';
-  if (props.archived) itemClass = 'archived'
+  if (props.archived) itemClass = 'archived';
+  else if (props.finished) itemClass = 'finished';
+  else if (props.deadline < Date.now()) itemClass = 'overtime';
 
   return (
     <div>
@@ -23,8 +23,8 @@ TodoItem.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   deadline: PropTypes.string.isRequired,
-  finished: PropTypes.bool.isRequired,
-  archived: PropTypes.bool.isRequired,
+  finished: PropTypes.bool,
+  archived: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
 };
 
