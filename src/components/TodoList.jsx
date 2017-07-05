@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
 import TodoInput from './TodoInput';
-import './TodoList.css';
 
 export default class TodoList extends Component {
   constructor(props) {
@@ -50,14 +49,17 @@ export default class TodoList extends Component {
   }
   render() {
     return (
-      <div>
-        <div>
+      <div className="section">
+        <div className="nav">
+          <h1 className="title nav-center">Todo List</h1>
+        </div>
+        <div className="level is-centered">
           <span>Filter : </span>
-          <button className={this.state.filter === 'all' ? 'pressed' : ''} onClick={this.selectFilter.bind(this, 'all')}>All</button>
-          <button className={this.state.filter === 'todo' ? 'pressed' : ''} onClick={this.selectFilter.bind(this, 'todo')}>To do</button>
-          <button className={this.state.filter === 'finished' ? 'pressed' : ''} onClick={this.selectFilter.bind(this, 'finished')}>Finished</button>
-          <button className={this.state.filter === 'outoftime' ? 'pressed' : ''} onClick={this.selectFilter.bind(this, 'outoftime')}>Out of time</button>
-          <button className={this.state.filter === 'archived' ? 'pressed' : ''} onClick={this.selectFilter.bind(this, 'archived')}>Archived</button>
+          <button className={this.state.filter === 'all' ? 'button is-dark' : 'button is-primary'} onClick={this.selectFilter.bind(this, 'all')}>All</button>
+          <button className={this.state.filter === 'todo' ? 'button is-dark' : 'button is-primary'} onClick={this.selectFilter.bind(this, 'todo')}>To do</button>
+          <button className={this.state.filter === 'finished' ? 'button is-dark' : 'button is-primary'} onClick={this.selectFilter.bind(this, 'finished')}>Finished</button>
+          <button className={this.state.filter === 'outoftime' ? 'button is-dark' : 'button is-primary'} onClick={this.selectFilter.bind(this, 'outoftime')}>Out of time</button>
+          <button className={this.state.filter === 'archived' ? 'button is-dark' : 'button is-primary'} onClick={this.selectFilter.bind(this, 'archived')}>Archived</button>
         </div>
         <ul>
           {
@@ -67,7 +69,7 @@ export default class TodoList extends Component {
               .filter(item => (this.state.filter === 'archived' ? item.archived : true))
               .filter(item => (this.state.filter === 'outoftime' ? (item.deadline && item.deadline < Date.now()) : true))
               .map((item, index) => (
-                <div>
+                <div className="box content is-">
                   <TodoItem
                     key={index}
                     name={item.name}
@@ -77,8 +79,8 @@ export default class TodoList extends Component {
                     archived={item.archived}
                     onClick={this.toggleFinished.bind(this, index)}
                   />
-                  <button onClick={this.deleteTodo.bind(this, index)}>Delete</button>
-                  <button onClick={this.toggleArchived.bind(this, index)}>Archive</button>
+                  <button className='delete is-medium' onClick={this.deleteTodo.bind(this, index)} />
+                  <button className="button is-warning"onClick={this.toggleArchived.bind(this, index)}>Archive</button>
                 </div>
               ))
           }

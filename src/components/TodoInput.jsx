@@ -31,11 +31,11 @@ export default class TodoInput extends Component {
   }
   render() {
     return (
-      <div>
-        <input type="text" placeholder="name" name="name" value={this.state.name} onChange={this.handleChange} />
-        <input type="text" name="description" placeholder="description" value={this.state.description} onChange={this.handleChange} />
-        <input type="date" name="deadline" value={this.state.deadline} onChange={this.handleChange} />
-        <button onClick={this.handleClickBtn}>Add</button>
+      <div className="field is-half">
+        <input className="input" type="text" placeholder="name" name="name" value={this.state.name} onChange={this.handleChange} />
+        <input className="input" type="text" name="description" placeholder="description" value={this.state.description} onChange={this.handleChange} />
+        <input className="input" type="date" name="deadline" value={this.state.deadline} onChange={this.handleChange} />
+      <button className="button is-primary" onClick={this.handleClickBtn}>Add</button>
       </div>
     );
   }
