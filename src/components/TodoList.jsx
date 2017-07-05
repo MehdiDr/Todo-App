@@ -6,6 +6,13 @@ import TodoFilter from './TodoFilter';
 export default class TodoList extends Component {
   constructor(props) {
     super(props);
+    this.addTodo = this.addTodo.bind(this);
+    this.deleteTodo = this.deleteTodo.bind(this);
+    this.toggleFinished = this.toggleFinished.bind(this);
+    this.toggleArchived = this.toggleArchived.bind(this);
+    this.toggleOvertime = this.toggleOvertime.bind(this);
+    this.selectFilter = this.selectFilter.bind(this);
+
     this.state = {
       todos: [],
       filter: 'none',
@@ -84,10 +91,10 @@ export default class TodoList extends Component {
                     finished={item.finished}
                     archived={item.archived}
                     overtime={item.overtime}
-                    onClick={this.toggleFinished.bind(this, index)}
+                    onClick={this.toggleFinished}
                   />
                   <button onClick={this.deleteTodo}>Delete</button>
-                  <button onClick={this.toggleArchived.bind(this, index)}>Archive</button>
+                  <button onClick={this.toggleArchived}>Archive</button>
                 </div>
               );
             })

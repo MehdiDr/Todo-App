@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 export default class TodoInput extends Component {
   constructor(props) {
     super(props);
+    this.onCLickBtn = this.onClickBtn.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       name: '',
       description: '',
