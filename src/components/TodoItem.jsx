@@ -11,9 +11,9 @@ const TodoItem = (props) => {
   return (
     <div>
       <li className={itemClass} onClick={props.onClick}>
-            <p>Name : {props.name}</p>
-            <p>Description : {props.description}</p>
-          {props.deadline ? (<p>DeadLine : {String(props.deadline)}</p>) : ''}
+        <p>Name : {props.name}</p>
+        <p>Description : {props.description}</p>
+        {props.deadline ? (<p>DeadLine : {String(props.deadline)}</p>) : ''}
       </li>
     </div>
   );
