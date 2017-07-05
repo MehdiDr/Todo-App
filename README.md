@@ -1,4 +1,4 @@
-# Todo-App [![Build Status](https://travis-ci.org/MehdiDr/Todo-App.svg?branch=master)](https://travis-ci.org/MehdiDr/Todo-App
+# Todo-App ![Build Status](https://travis-ci.org/MehdiDr/Todo-App.svg?branch=master)
 
 This project is build with React, Redux, NodeJS and MongoDB. You can :
 

@@ -7,10 +7,6 @@ export default class TodoList extends Component {
   constructor(props) {
     super(props);
     this.addTodo = this.addTodo.bind(this);
-    this.deleteTodo = this.deleteTodo.bind(this);
-    this.toggleFinished = this.toggleFinished.bind(this);
-    this.toggleArchived = this.toggleArchived.bind(this);
-    this.toggleOvertime = this.toggleOvertime.bind(this);
     this.selectFilter = this.selectFilter.bind(this);
 
     this.state = {
@@ -27,9 +23,8 @@ export default class TodoList extends Component {
     });
   }
   // Delete task
-  deleteTodo(e) {
+  deleteTodo(index) {
     const todos = this.state.todos;
-    const index = this.state.todos.indexOf(e.target.value);
     this.state.todos.splice(index, 1);
     this.setState({
       todos,
@@ -50,14 +45,6 @@ export default class TodoList extends Component {
       todos: this.state.todos,
     });
   }
-  toggleOvertime(index) {
-    const selectedTodo = this.state.todos[index];
-    selectedTodo.overtime = false;
-    this.setState({
-      todos: this.state.todos,
-    });
-  }
-
   selectFilter(status) {
     this.setState({
       filter: status,
@@ -87,10 +74,10 @@ export default class TodoList extends Component {
                     finished={item.finished}
                     archived={item.archived}
                     overtime={item.overtime}
-                    onClick={this.toggleFinished}
+                    onClick={this.toggleFinished.bind(this, index)}
                   />
-                  <button onClick={this.deleteTodo}>Delete</button>
-                  <button onClick={this.toggleArchived}>Archive</button>
+                  <button onClick={this.deleteTodo.bind(this, index)}>Delete</button>
+                  <button onClick={this.toggleArchived.bind(this, index)}>Archive</button>
                 </div>
               );
             })

@@ -5,15 +5,15 @@ import './TodoItem.css';
 const TodoItem = (props) => {
   let itemClass = '';
   if (props.archived) itemClass = 'archived';
-  else if (props.finished) itemClass = 'finished';
-  else if (props.deadline < Date.now()) itemClass = 'overtime';
+  if (props.finished) itemClass = 'finished';
+  if (props.deadline < Date.now()) itemClass = 'overtime';
 
   return (
     <div>
       <li className={itemClass} onClick={props.onClick}>
-        <p>Name : </p> {props.name}
-        <p>Description : </p>{props.description}
-        <p>DeadLine : </p>{props.deadline}
+        <p>Name : {props.name}</p>
+        <p>Description : {props.description}</p>
+        <p>DeadLine : {props.deadline}</p>
       </li>
     </div>
   );
@@ -26,6 +26,10 @@ TodoItem.propTypes = {
   finished: PropTypes.bool,
   archived: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
+};
+TodoItem.defaultProps = {
+  finished: false,
+  archived: false,
 };
 
 export default TodoItem;
