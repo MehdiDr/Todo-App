@@ -4,16 +4,16 @@ import './TodoItem.css';
 
 const TodoItem = (props) => {
   let itemClass = '';
-  if (props.archived) itemClass = 'archived';
-  if (props.finished) itemClass = 'finished';
-  if (props.deadline < Date.now()) itemClass = 'overtime';
+  if (props.archived) itemClass = 'archived ';
+  if (props.finished) itemClass += 'finished ';
+  if (props.deadline && props.deadline < Date.now()) itemClass += 'outoftime';
 
   return (
     <div>
       <li className={itemClass} onClick={props.onClick}>
         <p>Name : {props.name}</p>
         <p>Description : {props.description}</p>
-        <p>DeadLine : {props.deadline}</p>
+        {props.deadline ? (<p>DeadLine : {String(props.deadline)}</p>) : ''}
       </li>
     </div>
   );

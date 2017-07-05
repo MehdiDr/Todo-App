@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
 import TodoInput from './TodoInput';
-import TodoFilter from './TodoFilter';
+import './TodoList.css';
 
 export default class TodoList extends Component {
   constructor(props) {
     super(props);
     this.addTodo = this.addTodo.bind(this);
-    this.selectFilter = this.selectFilter.bind(this);
-
     this.state = {
       todos: [],
-      filter: 'none',
+      filter: 'all',
     };
   }
   // Add task
@@ -53,18 +51,22 @@ export default class TodoList extends Component {
   render() {
     return (
       <div>
-        <TodoFilter status={this.state.filter} selectFilter={this.selectFilter} />
+        <div>
+          <span>Filter : </span>
+          <button className={this.state.filter === 'all' ? 'pressed' : ''} onClick={this.selectFilter.bind(this, 'all')}>All</button>
+          <button className={this.state.filter === 'todo' ? 'pressed' : ''} onClick={this.selectFilter.bind(this, 'todo')}>To do</button>
+          <button className={this.state.filter === 'finished' ? 'pressed' : ''} onClick={this.selectFilter.bind(this, 'finished')}>Finished</button>
+          <button className={this.state.filter === 'outoftime' ? 'pressed' : ''} onClick={this.selectFilter.bind(this, 'outoftime')}>Out of time</button>
+          <button className={this.state.filter === 'archived' ? 'pressed' : ''} onClick={this.selectFilter.bind(this, 'archived')}>Archived</button>
+        </div>
         <ul>
           {
-            this.state.todos.map((item, index) => {
-              const isTodoFiltered = (this.state.filter === 'todo' && item.finished === true);
-              const isFinishedFiltered = (this.state.filter === 'finished' && item.finished === false);
-              const isArchivedFiltered = (this.state.filter === 'archived' && item.archived === false);
-              const isOvertimeFiltered = (this.state.filter === 'overtime' && item.overtime === false);
-              if (isTodoFiltered || isFinishedFiltered || isArchivedFiltered || isOvertimeFiltered) {
-                return null;
-              }
-              return (
+            this.state.todos
+              .filter(item => (this.state.filter === 'todo' ? !item.finished : true))
+              .filter(item => (this.state.filter === 'finished' ? item.finished : true))
+              .filter(item => (this.state.filter === 'archived' ? item.archived : true))
+              .filter(item => (this.state.filter === 'outoftime' ? (item.deadline && item.deadline < Date.now()) : true))
+              .map((item, index) => (
                 <div>
                   <TodoItem
                     key={index}
@@ -73,14 +75,12 @@ export default class TodoList extends Component {
                     deadline={item.deadline}
                     finished={item.finished}
                     archived={item.archived}
-                    overtime={item.overtime}
                     onClick={this.toggleFinished.bind(this, index)}
                   />
                   <button onClick={this.deleteTodo.bind(this, index)}>Delete</button>
                   <button onClick={this.toggleArchived.bind(this, index)}>Archive</button>
                 </div>
-              );
-            })
+              ))
           }
         </ul>
         <TodoInput addTodo={this.addTodo} />

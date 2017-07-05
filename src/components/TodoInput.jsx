@@ -13,7 +13,11 @@ export default class TodoInput extends Component {
     };
   }
   handleClickBtn() {
-    this.props.addTodo(this.state);
+    this.props.addTodo({
+      name: this.state.name,
+      description: this.state.description,
+      deadline: new Date(this.state.deadline),
+    });
     this.setState({
       name: '',
       description: '',

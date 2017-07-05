@@ -1,7 +1,7 @@
 .finished {
   text-decoration: line-through;
 }
-.overtime {
+.outoftime {
   color: red;
 }
 .archived {
