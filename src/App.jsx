@@ -7,8 +7,8 @@ class App extends Component {
       <div>
         <div className="nav">
           <h1 className="title nav-center">Todo List</h1>
-      </div>
-      <TodoComponents />
+        </div>
+        <TodoComponents />
       </div>
     );
   }
