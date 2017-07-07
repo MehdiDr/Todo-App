@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TodoComponents from './containers/TodoComponents';
-import createHistory from 'history/createBrowserHistory';
+import createBrowserHistory from 'history/createBrowserHistory';
 
 import { BrowserRouter as Router, HashRouter } from 'react-router-dom';
 
