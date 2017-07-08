@@ -24,7 +24,7 @@ const TodoList = props => (
                 onClick={props.toggleFinished.bind(this, item.id)}
               />
               <button className="delete is-medium" onClick={props.deleteTodo.bind(this, item.id)} />
-              <button className="button is-warning" onClick={props.toggleArchived.bind(this, item.id)}>Archive</button>
+              <button className="button is-warning" onClick={props.toggleArchived.bind(this, item.id)}>{item.archived ? "Unarchive" : "Archive"}</button>
             </div>
           ))
       }
