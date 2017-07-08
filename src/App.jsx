@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TodoComponents from './containers/TodoComponents';
+import TodoListContainer from './containers/TodoListContainer';
 
 class App extends Component {
   render() {
@@ -8,9 +8,10 @@ class App extends Component {
         <div className="nav">
           <h1 className="title nav-center">Todo List</h1>
         </div>
-        <TodoComponents />
+        <TodoListContainer />
       </div>
     );
   }
 }
+
 export default App;

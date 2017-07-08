@@ -6,7 +6,7 @@ export default class TodoInput extends Component {
     super(props);
     this.handleClickBtn = this.handleClickBtn.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.state = {
+    this.state = { // TODO
       name: '',
       description: '',
       deadline: '',
@@ -44,5 +44,5 @@ export default class TodoInput extends Component {
   }
 }
 TodoInput.propTypes = {
-  addTodo: PropTypes.func.isRequired,
+  addTodo: PropTypes.func.isRequired, // TODO
 };

@@ -14,8 +14,12 @@ const TodoFilter = (props) => {
 };
 
 TodoFilter.propTypes = {
-  selectFilter: PropTypes.func.isRequired,
-  filters: PropTypes.object.isRequired,
+  selectFilter: PropTypes.func.isRequired, // TODO
+  filters: PropTypes.shape({
+    todo: PropTypes.string.isRequired,
+    outoftime: PropTypes.string.isRequired,
+    archived: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default TodoFilter;
