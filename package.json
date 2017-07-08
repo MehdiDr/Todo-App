@@ -4,10 +4,12 @@
   "private": true,
   "homepage": "https://mehdidr.github.io/Todo-App",
   "dependencies": {
+    "history": "^4.6.3",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
+    "react-router-dom": "^4.1.1",
     "redux": "^3.7.1"
   },
   "devDependencies": {
