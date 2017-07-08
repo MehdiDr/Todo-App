@@ -13,7 +13,7 @@ export default class Todos extends Component {
     this.toggleFinished = this.toggleFinished.bind(this);
     this.state = {
       todos: [],
-      filter: 'all',
+      filters: {},
     };
   }
   // Function to add task on the list
@@ -48,23 +48,39 @@ export default class Todos extends Component {
       todos: this.state.todos,
     });
   }
-  selectFilter(status) {
+  // Change status of the filters
+  selectFilter(buttonClicked) {
+    const filters = this.state.filters;
+    if (buttonClicked === 'To do') {
+      filters.todo = (filters.todo === 'TODO') ? '' : 'TODO';
+    }
+    if (buttonClicked === 'Finished') {
+      filters.todo = (filters.todo === 'FINISHED') ? '' : 'FINISHED';
+    }
+    if (buttonClicked === 'Out of time') {
+      filters.outoftime = (filters.outoftime === 'OUTOFTIME') ? '' : 'OUTOFTIME';
+    }
+    if (buttonClicked === 'Archived') {
+      filters.archived = (filters.archived === 'ARCHIVED') ? '' : 'ARCHIVED';
+    }
     this.setState({
-      filter: status,
+      filters,
     });
   }
+
   render() {
-    return(
+    return (
       <div>
-        <TodoFilter status={this.state.filter} selectFilter={this.selectFilter} />
-        <TodoList todos={this.state.todos}
-                  filter={this.state.filter}
-                  toggleFinished={this.toggleFinished}
-                  deleteTodo={this.deleteTodo}
-                  toggleArchived={this.toggleArchived}
-                />
+        <TodoFilter filters={this.state.filters} selectFilter={this.selectFilter} />
+        <TodoList
+          todos={this.state.todos}
+          filters={this.state.filters}
+          toggleFinished={this.toggleFinished}
+          deleteTodo={this.deleteTodo}
+          toggleArchived={this.toggleArchived}
+        />
         <TodoInput addTodo={this.addTodo} />
       </div>
-    )
+    );
   }
 }

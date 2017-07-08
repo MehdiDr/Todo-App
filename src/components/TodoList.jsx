@@ -7,10 +7,10 @@ const TodoList = (props) => {
       <ul>
         {
           props.todos
-            .filter(item => (props.filter === 'todo' ? !item.finished : true))
-            .filter(item => (props.filter === 'finished' ? item.finished : true))
-            .filter(item => (props.filter === 'archived' ? item.archived : true))
-            .filter(item => (props.filter === 'outoftime' ? (item.deadline && item.deadline < Date.now()) : true))
+            .filter(item => (props.filters.todo === 'TODO' ? !item.finished : true))
+            .filter(item => (props.filters.todo === 'FINISHED' ? item.finished : true))
+            .filter(item => (props.filters.archived === 'ARCHIVED' ? item.archived : true))
+            .filter(item => (props.filters.outoftime === 'OUTOFTIME' ? (item.deadline && item.deadline < Date.now()) : true))
             .map((item, index) => (
               <div className="box content is-">
                 <TodoItem
