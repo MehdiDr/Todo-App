@@ -1,9 +1,7 @@
-const filters = (state = {
-  todo: '',
-  outoftime: '',
-  archived: '',
-}, action) => {
-  switch (action.type) {
+const initialState = 'none';
+
+function filters(state = initialState, action) {
+  switch (action && action.type) {
     case 'SELECT_FILTER':
       if (action.buttonClicked === 'To do') {
         return (state.todo === 'TODO') ? { ...state, todo: '' } : { ...state, todo: 'TODO' };
@@ -21,6 +19,6 @@ const filters = (state = {
     default:
       return state;
   }
-};
+}
 
 export default filters;
