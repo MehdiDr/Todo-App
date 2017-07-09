@@ -17,8 +17,15 @@ const TodoList = props => (
             archived={item.archived}
             onTodoClick={() => props.onTodoClick(item.id)}
           />
-          <button className="delete is-medium" onClick={() => props.onDeleteClick(item.id)} />
-          <button className="button is-warning" onClick={() => props.onArchiveClick(item.id)}>{item.archived ? 'Unarchive' : 'Archive'}</button>
+          <hr />
+          <div className="field is-grouped">
+            <p className="control">
+              <a className="button is-warning" onClick={() => props.onArchiveClick(item.id)}>{item.archived ? 'Unarchive' : 'Archive'}</a>
+            </p>
+            <p className="control">
+              <a className="button is-danger" onClick={() => props.onDeleteClick(item.id)}>Delete</a>
+            </p>
+          </div>
         </div>
       ))}
     </ul>

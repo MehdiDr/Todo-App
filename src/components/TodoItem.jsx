@@ -11,9 +11,9 @@ const TodoItem = (props) => {
   return (
     <div>
       <li className={itemClass} onClick={props.onTodoClick}>
-        <p>Name : {props.name}</p>
-        <p>Description : {props.description}</p>
-        {Object.prototype.toString.call(props.deadline) === '[object Date]' && !isNaN(props.deadline.getTime()) ? (<p>DeadLine : {String(props.deadline)}</p>) : ''}
+        <p><strong>{props.name}</strong></p>
+        <p><strong>{props.description}</strong></p>
+        {Object.prototype.toString.call(props.deadline) === '[object Date]' && !isNaN(props.deadline.getTime()) ? (<p><em>DeadLine : {String(props.deadline)}</em></p>) : ''}
       </li>
     </div>
   );

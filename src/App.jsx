@@ -9,7 +9,9 @@ const App = () => (
       <h1 className="title nav-center">Todo List</h1>
     </div>
     <TodoFilterContainer />
+    <hr />
     <TodoListContainer />
+    <hr />
     <AddTodo />
   </div>
 );

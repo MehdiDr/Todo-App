@@ -1,9 +1,9 @@
 .finished {
   text-decoration: line-through;
 }
-.outoftime {
+.outoftime, .outoftime strong {
   color: red;
 }
-.archived {
+.archived, .archived strong {
   color: #9E9E9E;
 }
