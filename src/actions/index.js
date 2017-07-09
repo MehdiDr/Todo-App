@@ -1,7 +1,6 @@
-let nextTodoId = 0;
 export const addTodo = (name, description, deadline) => ({
   type: 'ADD_TODO',
-  id: nextTodoId++,
+  id: Date.now(),
   name,
   description,
   deadline,
