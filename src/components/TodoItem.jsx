@@ -9,13 +9,12 @@ const TodoItem = (props) => {
   if (props.deadline && props.deadline < Date.now()) itemClass += 'outoftime';
 
   return (
-    <div>
-      <li className={itemClass} onClick={props.onTodoClick}>
-        <p><strong>{props.name}</strong></p>
-        <p><strong>{props.description}</strong></p>
-        {Object.prototype.toString.call(props.deadline) === '[object Date]' && !isNaN(props.deadline.getTime()) ? (<p><em>DeadLine : {String(props.deadline)}</em></p>) : ''}
-      </li>
-    </div>
+    <li className={itemClass} onClick={props.onTodoClick}>
+      <p><strong>{props.name}</strong></p>
+      <p><strong>{props.description}</strong></p>
+      {Object.prototype.toString.call(props.deadline) === '[object Date]' && !isNaN(props.deadline.getTime()) ?
+        (<p><em>DeadLine : {String(props.deadline)}</em></p>) : ''}
+    </li>
   );
 };
 

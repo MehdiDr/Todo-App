@@ -16,16 +16,16 @@ const store = createStore(reducers, enhancer);
 
 const App = () => (
   <Provider store={store}>
-    <div>
-      <div className="nav">
+    <section className="section">
+      <header className="nav">
         <h1 className="title nav-center">Todo List</h1>
-      </div>
+      </header>
       <AddTodo />
       <hr />
       <TodoFilterContainer />
       <hr />
       <TodoListContainer />
-    </div>
+    </section>
   </Provider>
 );
 
