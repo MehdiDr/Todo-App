@@ -2,24 +2,26 @@ import { connect } from 'react-redux';
 import { toggleTodo, toggleArchived } from '../actions';
 import TodoList from '../components/TodoList';
 
+const filterTodos = (todos, filters) =>
+  todos.filter(item => (filters.todo === 'TODO' ? !item.finished : true))
+       .filter(item => (filters.todo === 'FINISHED' ? item.finished : true))
+       .filter(item => (filters.archived === 'ARCHIVED' ? item.archived : true))
+       .filter(item => (filters.outoftime === 'OUTOFTIME' ? (item.deadline && item.deadline < Date.now()) : true));
+
 const mapStateToProps = state => ({
-  todos: state.todos,
-  filters: {
-    todo: '',
-    outoftime: '',
-    archived: '',
-  },
+  todos: filterTodos(state.todos, state.filters),
 });
 
 const mapDispatchToProps = dispatch => ({
-  onTodoClick: () => {},
-  toggleFinished: (id) => {
+  onTodoClick: (id) => {
     dispatch(toggleTodo(id));
   },
-  toggleArchived: (id) => {
+  onArchiveClick: (id) => {
     dispatch(toggleArchived(id));
   },
-  deleteTodo: () => {},
+  onDeleteClick: (id) => {
+    // TODO
+  },
 });
 
 const TodoListContainer = connect(

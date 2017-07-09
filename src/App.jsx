@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
+import AddTodo from './containers/AddTodo';
+import TodoFilterContainer from './containers/TodoFilterContainer';
 import TodoListContainer from './containers/TodoListContainer';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <div className="nav">
-          <h1 className="title nav-center">Todo List</h1>
-        </div>
-        <TodoListContainer />
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div>
+    <div className="nav">
+      <h1 className="title nav-center">Todo List</h1>
+    </div>
+    <TodoFilterContainer />
+    <TodoListContainer />
+    <AddTodo />
+  </div>
+);
 
 export default App;
