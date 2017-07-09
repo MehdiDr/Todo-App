@@ -1,13 +1,6 @@
-const todos = (state = [
-  {
-    id: 42,
-    name: 'foo',
-    description: 'bar',
-    deadline: new Date('2018'),
-    finished: false,
-    archived: false,
-  },
-], action) => {
+const todos = (state = [], action) => {
+  const newState = Object.assign([], state);
+  const indexTodo = state.findIndex(todo => todo.id === action.id);
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -21,6 +14,9 @@ const todos = (state = [
           finished: false,
         },
       ];
+    case 'DELETE_TODO':
+      newState.splice(indexTodo, 1);
+      return newState;
     case 'TOGGLE_TODO':
       return state.map(todo => (
         (todo.id === action.id) ? { ...todo, finished: !todo.finished } : todo

@@ -6,19 +6,19 @@ const TodoFilter = props => (
     <p><strong>Filters : </strong></p>
     <div className="field is-grouped">
       <p className="control">
-        <a className={props.filters.todo === 'TODO' ? 'button is-dark' : 'button is-light'} onClick={() => props.onFilterClick('To do')}>To do</a>
+      <a className={props.filters.todo === 'TODO' ? 'button is-dark' : 'button is-light'} onClick={() => props.onFilterClick('To do')}>To do</a>
       </p>
       <p className="control">
-        <a className={props.filters.todo === 'FINISHED' ? 'button is-dark' : 'button is-light'} onClick={() => props.onFilterClick('Finished')}>Finished</a>
+      <a className={props.filters.todo === 'FINISHED' ? 'button is-dark' : 'button is-light'} onClick={() => props.onFilterClick('Finished')}>Finished</a>
       </p>
       <p className="control">
-        <a className={props.filters.outoftime === 'OUTOFTIME' ? 'button is-dark' : 'button is-light'} onClick={() => props.onFilterClick('Out of time')}>Out of time</a>
+      <a className={props.filters.outoftime === 'OUTOFTIME' ? 'button is-dark' : 'button is-light'} onClick={() => props.onFilterClick('Out of time')}>Out of time</a>
       </p>
       <p className="control">
-        <a className={props.filters.archived === 'ARCHIVED' ? 'button is-dark' : 'button is-light'} onClick={() => props.onFilterClick('Archived')}>Archived</a>
+      <a className={props.filters.archived === 'ARCHIVED' ? 'button is-dark' : 'button is-light'} onClick={() => props.onFilterClick('Archived')}>Archived</a>
       </p>
     </div>
-     </div>
+  </div>
    );
 
 TodoFilter.propTypes = {

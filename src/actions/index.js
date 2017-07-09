@@ -6,6 +6,10 @@ export const addTodo = (name, description, deadline) => ({
   description,
   deadline,
 });
+export const deleteTodo = id => ({
+  type: 'DELETE_TODO',
+  id,
+});
 
 export const toggleTodo = id => ({
   type: 'TOGGLE_TODO',

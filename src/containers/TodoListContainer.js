@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { toggleTodo, toggleArchived } from '../actions';
+import { toggleTodo, toggleArchived, deleteTodo } from '../actions';
 import TodoList from '../components/TodoList';
 
 const filterTodos = (todos, filters) =>
@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(toggleArchived(id));
   },
   onDeleteClick: (id) => {
-    // TODO
+    dispatch(deleteTodo(id));
   },
 });
 
