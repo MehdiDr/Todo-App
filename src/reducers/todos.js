@@ -1,7 +1,9 @@
-const todos = (state = [], action) => {
+const initialState = [];
+
+function todos(state = initialState, action) {
   const newState = Object.assign([], state);
   const indexTodo = state.findIndex(todo => todo.id === action.id);
-  switch (action.type) {
+  switch (action && action.type) {
     case 'ADD_TODO':
       return [
         ...state,
@@ -28,6 +30,6 @@ const todos = (state = [], action) => {
     default:
       return state;
   }
-};
+}
 
 export default todos;
