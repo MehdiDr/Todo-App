@@ -1,13 +1,18 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { compose, createStore } from 'redux';
+import persistState from 'redux-localstorage';
 
 import AddTodo from './containers/AddTodo';
 import TodoFilterContainer from './containers/TodoFilterContainer';
 import TodoListContainer from './containers/TodoListContainer';
 import reducers from './reducers/index';
 
-const store = createStore(reducers);
+const enhancer = compose(
+  persistState(),
+);
+
+const store = createStore(reducers, enhancer);
 
 const App = () => (
   <Provider store={store}>
